@@ -3,518 +3,1079 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UMKM Sambas Berjaya</title>
+    <title>UMKM Sambas Berjaya — Gerakan Ekonomi Bumi Terigas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         :root {
-            --primary: #1B6B4A;
-            --primary-light: #2D9B6E;
-            --accent: #F59E0B;
-            --dark: #0F172A;
-            --gray: #64748B;
-            --light: #F8FAFC;
-            --white: #FFFFFF;
+            /* Palet Melayu Sambas: Hijau Lumut Keraton & Kuning Emas Tenun Sambas */
+            --melayu-green-dark: #0D3E29;
+            --melayu-green: #155739;
+            --melayu-green-light: #217B52;
+            --melayu-gold: #C99700;
+            --melayu-gold-bright: #E5B218;
+            --melayu-gold-soft: #F9E8B2;
+            --melayu-gold-glow: rgba(201, 151, 0, 0.15);
+            --bg-warm: #FAF8F2;
+            --bg-card: #FFFFFF;
+            --text-dark: #1A241F;
+            --text-muted: #53645B;
+            --border-soft: rgba(201, 151, 0, 0.25);
+            --border-green: rgba(13, 62, 41, 0.12);
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            color: var(--dark);
-            background: var(--white);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-dark);
+            background: var(--bg-warm);
+            line-height: 1.6;
             overflow-x: hidden;
+        }
+
+        /* Corak Garis Tenun Sambas */
+        .tenun-border-top {
+            height: 6px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--melayu-gold) 0px,
+                var(--melayu-gold) 15px,
+                var(--melayu-green-dark) 15px,
+                var(--melayu-green-dark) 30px
+            );
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 101;
         }
 
         /* ===== NAVBAR ===== */
         nav {
             position: fixed;
-            top: 0;
+            top: 6px;
             width: 100%;
-            padding: 1rem 2rem;
+            padding: 1rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(250, 248, 242, 0.94);
+            backdrop-filter: blur(12px);
             z-index: 100;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid var(--border-soft);
         }
 
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--primary);
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
             text-decoration: none;
         }
 
-        .logo span { color: var(--accent); }
+        .logo-motif {
+            width: 38px;
+            height: 38px;
+            background: var(--melayu-green-dark);
+            border: 2px solid var(--melayu-gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(13, 62, 41, 0.2);
+        }
+
+        .logo-motif svg {
+            width: 22px;
+            height: 22px;
+            color: var(--melayu-gold-bright);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--melayu-green-dark);
+            letter-spacing: 0.5px;
+            line-height: 1.1;
+        }
+
+        .logo-title span {
+            color: var(--melayu-gold);
+        }
+
+        .logo-tagline {
+            font-size: 0.68rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.2rem;
+            align-items: center;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--gray);
-            font-weight: 500;
+            color: var(--text-dark);
+            font-weight: 600;
             font-size: 0.9rem;
-            transition: color 0.3s;
+            transition: all 0.25s ease;
+            position: relative;
         }
 
-        .nav-links a:hover { color: var(--primary); }
-
-        .nav-cta {
-            background: var(--primary);
-            color: var(--white) !important;
-            padding: 0.6rem 1.4rem;
-            border-radius: 8px;
-            transition: background 0.3s !important;
+        .nav-links a:hover {
+            color: var(--melayu-gold);
         }
 
-        .nav-cta:hover { background: var(--primary-light) !important; }
+        .nav-btn {
+            background: var(--melayu-green-dark);
+            color: #FFFFFF !important;
+            padding: 0.65rem 1.4rem;
+            border-radius: 6px;
+            border: 1px solid var(--melayu-gold);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 14px rgba(13, 62, 41, 0.2);
+            transition: all 0.3s ease !important;
+        }
 
-        /* ===== HERO ===== */
+        .nav-btn:hover {
+            background: var(--melayu-green);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(13, 62, 41, 0.3);
+        }
+
+        /* ===== HERO SECTION ===== */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 6rem 2rem 4rem;
-            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 50%, #fefce8 100%);
+            padding: 8rem 3rem 5rem;
+            background: radial-gradient(circle at 85% 20%, rgba(201, 151, 0, 0.12) 0%, transparent 45%),
+                        linear-gradient(180deg, #F5F1E6 0%, var(--bg-warm) 100%);
             position: relative;
         }
 
-        .hero::after {
-            content: '';
+        .hero-pattern {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 120px;
-            background: linear-gradient(to bottom, transparent, var(--white));
+            inset: 0;
+            opacity: 0.035;
+            background-image: radial-gradient(var(--melayu-green-dark) 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
+            pointer-events: none;
         }
 
-        .hero-content {
-            max-width: 1200px;
+        .hero-container {
+            max-width: 1240px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.15fr 0.85fr;
             gap: 4rem;
             align-items: center;
+            position: relative;
+            z-index: 2;
         }
 
-        .hero-badge {
-            display: inline-block;
-            background: rgba(27,107,74,0.1);
-            color: var(--primary);
+        .badge-melayu {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            background: rgba(201, 151, 0, 0.14);
+            border: 1px solid var(--melayu-gold);
+            color: var(--melayu-green-dark);
             padding: 0.4rem 1rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
+            border-radius: 40px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 1.5rem;
+        }
+
+        .badge-melayu svg {
+            width: 16px;
+            height: 16px;
+            color: var(--melayu-gold);
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-family: 'Cinzel', serif;
+            font-size: 3.4rem;
             font-weight: 800;
-            line-height: 1.1;
+            color: var(--melayu-green-dark);
+            line-height: 1.18;
             margin-bottom: 1.5rem;
-            color: var(--dark);
         }
 
-        .hero h1 .highlight {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            color: var(--gray);
-            line-height: 1.7;
-            margin-bottom: 2rem;
-            max-width: 500px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: var(--white);
-            padding: 0.9rem 2rem;
-            border: none;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s;
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-light);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(27,107,74,0.3);
-        }
-
-        .btn-secondary {
-            background: var(--white);
-            color: var(--dark);
-            padding: 0.9rem 2rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s;
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        .hero-visual {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-card {
-            width: 100%;
-            max-width: 450px;
-            background: var(--white);
-            border-radius: 24px;
-            padding: 2.5rem;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.08);
+        .hero h1 span {
+            color: var(--melayu-gold);
+            display: inline-block;
             position: relative;
         }
 
-        .hero-card::before {
-            content: '🏪';
-            font-size: 3rem;
-            position: absolute;
-            top: -20px;
-            right: 20px;
-            background: var(--white);
-            border-radius: 16px;
-            padding: 0.5rem;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 580px;
         }
 
-        .stats-grid {
+        .hero-actions {
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--melayu-gold) 0%, #A87D00 100%);
+            color: #FFFFFF;
+            padding: 0.95rem 2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            border: 1px solid var(--melayu-gold-bright);
+            box-shadow: 0 6px 20px rgba(201, 151, 0, 0.35);
+            transition: all 0.3s ease;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(201, 151, 0, 0.45);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--melayu-green-dark);
+            padding: 0.95rem 2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            border: 1.5px solid var(--melayu-green-dark);
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: var(--melayu-green-dark);
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Right Card (Melayu Tenun Motif Frame) */
+        .hero-motif-card {
+            background: var(--bg-card);
+            border-radius: 18px;
+            border: 2px solid var(--melayu-gold);
+            padding: 2.5rem;
+            box-shadow: 0 20px 50px rgba(13, 62, 41, 0.12);
+            position: relative;
+        }
+
+        .hero-motif-card::before {
+            content: '';
+            position: absolute;
+            inset: 6px;
+            border: 1px dashed var(--border-soft);
+            border-radius: 12px;
+            pointer-events: none;
+        }
+
+        .card-header-tenun {
+            text-align: center;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-soft);
+            margin-bottom: 1.8rem;
+        }
+
+        .card-header-tenun h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--melayu-green-dark);
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .card-header-tenun p {
+            font-size: 0.82rem;
+            color: var(--melayu-gold);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .metrics-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+            gap: 1.25rem;
         }
 
-        .stat-item {
+        .metric-box {
+            background: #FDFBF7;
+            border: 1px solid var(--border-soft);
+            border-radius: 12px;
+            padding: 1.4rem 1rem;
             text-align: center;
-            padding: 1rem;
-            background: var(--light);
-            border-radius: 16px;
+            transition: all 0.25s ease;
         }
 
-        .stat-number {
-            font-size: 2rem;
+        .metric-box:hover {
+            border-color: var(--melayu-gold);
+            background: #FFFDF9;
+            transform: translateY(-2px);
+        }
+
+        .metric-icon-wrap {
+            width: 44px;
+            height: 44px;
+            margin: 0 auto 0.75rem;
+            background: var(--melayu-gold-glow);
+            border: 1px solid var(--border-soft);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .metric-icon-wrap svg {
+            width: 22px;
+            height: 22px;
+            color: var(--melayu-gold);
+            stroke-width: 1.8;
+        }
+
+        .metric-value {
+            font-family: 'Cinzel', serif;
+            font-size: 1.85rem;
             font-weight: 800;
-            color: var(--primary);
+            color: var(--melayu-green-dark);
+            line-height: 1;
+            margin-bottom: 0.35rem;
         }
 
-        .stat-label {
+        .metric-label {
             font-size: 0.8rem;
-            color: var(--gray);
-            margin-top: 0.3rem;
+            font-weight: 600;
+            color: var(--text-muted);
         }
 
-        /* ===== FEATURES ===== */
-        .features {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+        /* ===== SECTION DIVIDER TENUN ===== */
+        .tenun-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.2rem;
+            padding: 2rem 0;
         }
 
-        .section-header {
+        .tenun-divider-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--melayu-gold), transparent);
+            flex: 1;
+            max-width: 200px;
+        }
+
+        .tenun-divider-symbol {
+            width: 14px;
+            height: 14px;
+            background: var(--melayu-gold);
+            transform: rotate(45deg);
+        }
+
+        /* ===== SECTION TITLE ===== */
+        .section-heading {
             text-align: center;
-            margin-bottom: 4rem;
+            max-width: 760px;
+            margin: 0 auto 4rem;
         }
 
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
+        .section-subtitle {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--melayu-gold);
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+
+        .section-heading h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.6rem;
+            color: var(--melayu-green-dark);
+            font-weight: 700;
+            line-height: 1.25;
             margin-bottom: 1rem;
         }
 
-        .section-header p {
-            font-size: 1.1rem;
-            color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto;
+        .section-heading p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
         }
 
-        .features-grid {
+        /* ===== LAYANAN / SERVICES ===== */
+        .services-section {
+            padding: 5rem 3rem 6rem;
+            background: #FFFFFF;
+            position: relative;
+        }
+
+        .services-grid {
+            max-width: 1240px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
         }
 
-        .feature-card {
-            padding: 2rem;
-            border-radius: 16px;
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s;
-            cursor: default;
-        }
-
-        .feature-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.06);
-        }
-
-        .feature-icon {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
+        .service-card {
+            background: var(--bg-warm);
             border-radius: 14px;
+            border: 1px solid var(--border-soft);
+            padding: 2.2rem 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--melayu-gold);
+            box-shadow: 0 16px 35px rgba(13, 62, 41, 0.08);
+            background: #FFFFFF;
+        }
+
+        /* Standardized Icon Wrapper across all cards */
+        .icon-circle {
+            width: 54px;
+            height: 54px;
+            border-radius: 12px;
+            background: var(--melayu-green-dark);
+            border: 1.5px solid var(--melayu-gold);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.4rem;
+            transition: all 0.3s ease;
         }
 
-        .feature-card h3 {
-            font-size: 1.15rem;
+        .service-card:hover .icon-circle {
+            background: var(--melayu-gold);
+            border-color: var(--melayu-green-dark);
+        }
+
+        .icon-circle svg {
+            width: 26px;
+            height: 26px;
+            color: var(--melayu-gold-bright);
+            stroke-width: 1.8;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .icon-circle svg {
+            color: var(--melayu-green-dark);
+        }
+
+        .service-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
             font-weight: 700;
-            margin-bottom: 0.6rem;
+            color: var(--melayu-green-dark);
+            margin-bottom: 0.75rem;
         }
 
-        .feature-card p {
-            font-size: 0.9rem;
-            color: var(--gray);
-            line-height: 1.6;
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.7;
         }
 
-        /* ===== ABOUT ===== */
-        .about {
-            padding: 6rem 2rem;
-            background: var(--light);
+        /* ===== ABOUT / WARISAN SAMBAS ===== */
+        .about-section {
+            padding: 6rem 3rem;
+            background: var(--bg-warm);
+            position: relative;
         }
 
-        .about-content {
-            max-width: 1200px;
+        .about-grid {
+            max-width: 1240px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 4.5rem;
             align-items: center;
         }
 
-        .about-visual {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            border-radius: 24px;
-            padding: 3rem;
-            color: var(--white);
+        .about-banner {
+            background: linear-gradient(145deg, var(--melayu-green-dark) 0%, #08281A 100%);
+            border-radius: 20px;
+            border: 2px solid var(--melayu-gold);
+            padding: 3.5rem 3rem;
+            color: #FFFFFF;
             position: relative;
-            overflow: hidden;
+            box-shadow: 0 20px 45px rgba(13, 62, 41, 0.2);
         }
 
-        .about-visual::after {
+        .about-banner::before {
             content: '';
             position: absolute;
-            width: 200px;
-            height: 200px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            top: -50px;
-            right: -50px;
+            inset: 8px;
+            border: 1px dashed rgba(201, 151, 0, 0.4);
+            border-radius: 14px;
+            pointer-events: none;
         }
 
-        .about-visual h3 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
+        .about-banner h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.9rem;
+            color: var(--melayu-gold-bright);
+            margin-bottom: 1.2rem;
         }
 
-        .about-visual p {
+        .about-banner p {
             font-size: 1rem;
-            line-height: 1.7;
-            opacity: 0.9;
-        }
-
-        .about-text h2 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text p {
-            font-size: 1rem;
-            color: var(--gray);
             line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        .about-list {
-            list-style: none;
-            margin-top: 1.5rem;
-        }
-
-        .about-list li {
-            padding: 0.5rem 0;
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .about-list li::before {
-            content: '✅';
-        }
-
-        /* ===== CTA ===== */
-        .cta {
-            padding: 6rem 2rem;
-            text-align: center;
-        }
-
-        .cta-box {
-            max-width: 700px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            border-radius: 24px;
-            padding: 4rem 3rem;
-            color: var(--white);
-        }
-
-        .cta-box h2 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .cta-box p {
-            font-size: 1.1rem;
-            opacity: 0.9;
+            opacity: 0.92;
             margin-bottom: 2rem;
         }
 
-        .btn-whatsapp {
-            background: #25D366;
-            color: var(--white);
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
+        .about-quote {
+            font-style: italic;
+            border-left: 3px solid var(--melayu-gold);
+            padding-left: 1.2rem;
+            font-size: 0.95rem;
+            color: var(--melayu-gold-soft);
+        }
+
+        .about-details h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.4rem;
+            color: var(--melayu-green-dark);
+            line-height: 1.3;
+            margin-bottom: 1.2rem;
+        }
+
+        .about-details > p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .item-icon-wrap {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            background: var(--melayu-gold-glow);
+            border: 1px solid var(--border-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .item-icon-wrap svg {
+            width: 18px;
+            height: 18px;
+            color: var(--melayu-gold);
+            stroke-width: 2;
+        }
+
+        .item-text h4 {
             font-weight: 700;
-            cursor: pointer;
+            color: var(--melayu-green-dark);
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .item-text p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            padding: 6rem 3rem;
+            background: #FFFFFF;
+        }
+
+        .cta-container {
+            max-width: 980px;
+            margin: 0 auto;
+            background: linear-gradient(145deg, var(--melayu-green-dark) 0%, #0A3221 100%);
+            border: 2px solid var(--melayu-gold);
+            border-radius: 20px;
+            padding: 4.5rem 3.5rem;
+            text-align: center;
+            color: #FFFFFF;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(13, 62, 41, 0.25);
+        }
+
+        .cta-container::before {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            border: 1px dashed rgba(201, 151, 0, 0.4);
+            border-radius: 14px;
+            pointer-events: none;
+        }
+
+        .cta-container h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--melayu-gold-bright);
+            margin-bottom: 1rem;
+        }
+
+        .cta-container p {
+            font-size: 1.1rem;
+            max-width: 620px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.92;
+            line-height: 1.7;
+        }
+
+        .btn-cta-gold {
+            background: linear-gradient(135deg, var(--melayu-gold) 0%, #A87D00 100%);
+            color: #FFFFFF;
+            padding: 1.05rem 2.8rem;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            font-weight: 700;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 0.6rem;
-            transition: all 0.3s;
+            gap: 0.75rem;
+            border: 1px solid var(--melayu-gold-bright);
+            box-shadow: 0 6px 20px rgba(201, 151, 0, 0.4);
+            transition: all 0.3s ease;
         }
 
-        .btn-whatsapp:hover {
-            background: #1DA851;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+        .btn-cta-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(201, 151, 0, 0.55);
+        }
+
+        .btn-cta-gold svg {
+            width: 20px;
+            height: 20px;
+            color: #FFFFFF;
         }
 
         /* ===== FOOTER ===== */
         footer {
-            padding: 3rem 2rem;
-            text-align: center;
-            border-top: 1px solid #e2e8f0;
-            color: var(--gray);
-            font-size: 0.9rem;
+            background: #09261A;
+            color: #FFFFFF;
+            padding: 4rem 3rem 2rem;
+            border-top: 3px solid var(--melayu-gold);
         }
 
-        footer a {
-            color: var(--primary);
+        .footer-content {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid rgba(201, 151, 0, 0.2);
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-logo h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--melayu-gold-bright);
+        }
+
+        .footer-logo p {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 0.3rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--melayu-gold-bright);
+        }
+
+        .footer-bottom {
+            max-width: 1240px;
+            margin: 1.8rem auto 0;
+            text-align: center;
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-bottom a {
+            color: var(--melayu-gold);
             text-decoration: none;
         }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .hero-content, .about-content { grid-template-columns: 1fr; gap: 2rem; }
-            .features-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.4rem; }
-            .nav-links { display: none; }
-            .hero-visual { order: -1; }
-            .stats-grid { grid-template-columns: 1fr 1fr; }
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-container, .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            nav {
+                padding: 1rem 1.5rem;
+            }
+            .hero, .services-section, .about-section, .cta-section {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- Corak Border Tenun Melayu Sambas -->
+    <div class="tenun-border-top"></div>
+
     <!-- NAVBAR -->
     <nav>
-        <a href="#" class="logo">Sambas<span>Berjaya</span></a>
+        <a href="#beranda" class="logo-wrap">
+            <div class="logo-motif">
+                <!-- Motif Songket Sambas (Pucuk Rebung Monoline) -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 22 12 12 22 2 12 12 2"></polygon>
+                    <line x1="12" y1="6" x2="12" y2="18"></line>
+                    <line x1="6" y1="12" x2="18" y2="12"></line>
+                </svg>
+            </div>
+            <div class="logo-text">
+                <div class="logo-title">Sambas<span>Berjaya</span></div>
+                <div class="logo-tagline">Bumi Sambas Terigas</div>
+            </div>
+        </a>
         <ul class="nav-links">
             <li><a href="#beranda">Beranda</a></li>
             <li><a href="#layanan">Layanan</a></li>
-            <li><a href="#tentang">Tentang</a></li>
-            <li><a href="#kontak" class="nav-cta">Hubungi Kami</a></li>
+            <li><a href="#tentang">Warisan & Usaha</a></li>
+            <li>
+                <a href="#kontak" class="nav-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    Hubungi Kami
+                </a>
+            </li>
         </ul>
     </nav>
 
-    <!-- HERO -->
+    <!-- HERO SECTION -->
     <section class="hero" id="beranda">
-        <div class="hero-content">
+        <div class="hero-pattern"></div>
+        <div class="hero-container">
             <div>
-                <div class="hero-badge">🌟 UMKM Kabupaten Sambas</div>
+                <div class="badge-melayu">
+                    <!-- Icon Pucuk Rebung / Daun Seragam -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 12h5v8h10v-8h5L12 2z"></path>
+                    </svg>
+                    Pemberdayaan UMKM Kabupaten Sambas
+                </div>
                 <h1>
-                    Membangun Ekonomi Lokal,<br>
-                    <span class="highlight">Sambas Berjaya</span>
+                    Menjunjung Tradisi,<br>
+                    <span>Sambas Berjaya</span> Menuju Digital
                 </h1>
-                <p>
-                    Platform digital untuk memajukan Usaha Mikro, Kecil, dan Menengah di Kabupaten Sambas.
-                    Menghubungkan pelaku usaha dengan peluang dan pasar yang lebih luas.
+                <p class="hero-desc">
+                    Wadah terpadu pergerakan Usaha Mikro, Kecil, dan Menengah di Kabupaten Sambas.
+                    Mengangkat kearifan lokal, Tenun Songket Sambas, hasil bumi, dan produk unggulan daerah
+                    agar berdaya saing di pasar modern.
                 </p>
-                <div class="hero-buttons">
-                    <a href="#kontak" class="btn-primary">
-                        📞 Hubungi Kami
+                <div class="hero-actions">
+                    <a href="#kontak" class="btn-gold">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                        </svg>
+                        Hubungi Pengelola
                     </a>
-                    <a href="#layanan" class="btn-secondary">
-                        Pelajari Lebih Lanjut →
+                    <a href="#layanan" class="btn-outline">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                        Jelajahi Program
                     </a>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="hero-card">
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <div class="stat-number">500+</div>
-                            <div class="stat-label">Pelaku UMKM</div>
+
+            <!-- Hero Motif Card -->
+            <div class="hero-motif-card">
+                <div class="card-header-tenun">
+                    <h3>Potensi Ekonomi Daerah</h3>
+                    <p>Kabupaten Sambas • Kalimantan Barat</p>
+                </div>
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-icon-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">50+</div>
-                            <div class="stat-label">Produk Unggulan</div>
+                        <div class="metric-value">500+</div>
+                        <div class="metric-label">Pelaku UMKM</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-icon-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">19</div>
-                            <div class="stat-label">Kecamatan</div>
+                        <div class="metric-value">50+</div>
+                        <div class="metric-label">Produk Unggulan</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-icon-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">🚀</div>
-                            <div class="stat-label">Go Digital</div>
+                        <div class="metric-value">19</div>
+                        <div class="metric-label">Kecamatan</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-icon-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                <polyline points="17 6 23 6 23 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="metric-value">100%</div>
+                        <div class="metric-label">Arah Digital</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PEMBATAS TENUN -->
+    <div class="tenun-divider">
+        <div class="tenun-divider-line"></div>
+        <div class="tenun-divider-symbol"></div>
+        <div class="tenun-divider-line"></div>
+    </div>
+
+    <!-- SERVICES SECTION -->
+    <section class="services-section" id="layanan">
+        <div class="section-heading">
+            <span class="section-subtitle">Program Kerja Unggulan</span>
+            <h2>Layanan Sambas Berjaya</h2>
+            <p>Dukungan komprehensif bagi pelaku usaha daerah untuk tumbuh berkelanjutan dengan menjaga marwah kearifan lokal.</p>
+        </div>
+
+        <div class="services-grid">
+            <!-- Card 1 -->
+            <div class="service-card">
+                <div class="icon-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                </div>
+                <h3>Etalase Digital Produk</h3>
+                <p>Katalog daring terintegrasi untuk menampilkan karya tenun lunggi, olahan jeruk tebas, kerajinan rotan, dan kuliner khas Sambas ke pasar nasional.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="service-card">
+                <div class="icon-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                </div>
+                <h3>Pelatihan & Literasi Digital</h3>
+                <p>Bimbingan bertahap bagi wirausahawan lokal dalam pengelolaan pembukuan modern, foto produk, pemasaran media sosial, dan transaksi nontunai.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="service-card">
+                <div class="icon-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <h3>Jejaring & Kemitraan</h3>
+                <p>Menghubungkan UMKM dengan lembaga pembiayaan, dinas terkait, kurir logistik, dan sentra distribusi untuk mempercepat penetrasi produk.</p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="service-card">
+                <div class="icon-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <h3>Legalitas & Sertifikasi</h3>
+                <p>Pendampingan perizinan Nomor Induk Berusaha (NIB), sertifikasi Halal, P-IRT, hingga pendaftaran Hak Kekayaan Intelektual motif tenun tradisional.</p>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="service-card">
+                <div class="icon-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M2 12h20"></path>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                </div>
+                <h3>Promosi Terpadu Daerah</h3>
+                <p>Kampanye pemasaran bersama di tingkat provinsi dan nasional untuk mengukuhkan reputasi Sambas sebagai pusat komoditas unggul Kalimantan Barat.</p>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="service-card">
+                <div class="icon-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                </div>
+                <h3>Standardisasi Kemasan</h3>
+                <p>Pengembangan desain kemasan produk yang higienis, berdaya tarik visual tinggi, dan mencerminkan identitas budaya Melayu Sambas yang elegan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PEMBATAS TENUN -->
+    <div class="tenun-divider">
+        <div class="tenun-divider-line"></div>
+        <div class="tenun-divider-symbol"></div>
+        <div class="tenun-divider-line"></div>
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <section class="about-section" id="tentang">
+        <div class="about-grid">
+            <div class="about-banner">
+                <h3>Warisan Kesultanan & Spirit Usaha Sambas</h3>
+                <p>
+                    Kabupaten Sambas memiliki kekayaan budaya dan sejarah perdagangan yang agung sejak masa Kesultanan Sambas.
+                    Semangat berdikari dan berniaga ini kami teruskan melalui wadah digital agar tiap tetes keringat pengrajin dan petani Sambas membuahkan kemakmuran nyata.
+                </p>
+                <div class="about-quote">
+                    "Menjunjung adat, membina usaha, memajukan negeri Sambas yang beradab dan terigas."
+                </div>
+            </div>
+
+            <div class="about-details">
+                <h2>Pilar Kemajuan Bersama</h2>
+                <p>
+                    Setiap inisiatif dirancang dengan pendekatan berbasis komunitas agar manfaat pertumbuhan ekonomi dirasakan merata oleh seluruh lapisan masyarakat di 19 kecamatan.
+                </p>
+
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <div class="item-icon-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="item-text">
+                            <h4>Kelestarian Motif Tenun Sambas</h4>
+                            <p>Melindungi dan mempromosikan nilai luhur kain cual/songket Sambas bernilai seni tinggi.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="item-icon-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="item-text">
+                            <h4>Penguatan Komoditas Jeruk & Hasil Tani</h4>
+                            <p>Membantu hilirisasi produk pertanian segar menjadi olahan bernilai tambah.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="item-icon-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="item-text">
+                            <h4>Ekosistem Digital Mandiri</h4>
+                            <p>Membekali pelaku usaha muda dengan literasi teknologi tanpa meninggalkan akar budaya.</p>
                         </div>
                     </div>
                 </div>
@@ -522,90 +1083,39 @@
         </div>
     </section>
 
-    <!-- FEATURES -->
-    <section class="features" id="layanan">
-        <div class="section-header">
-            <h2>Layanan Kami</h2>
-            <p>Mendukung pertumbuhan UMKM Sambas melalui digitalisasi dan pemberdayaan</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🛒</div>
-                <h3>Katalog Digital</h3>
-                <p>Tampilkan produk UMKM secara online agar mudah ditemukan calon pembeli dari seluruh Indonesia.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📢</div>
-                <h3>Promosi & Pemasaran</h3>
-                <p>Bantu promosikan produk lokal Sambas lewat media digital dan sosial media.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎓</div>
-                <h3>Pelatihan Digital</h3>
-                <p>Workshop dan pelatihan untuk meningkatkan kemampuan digital pelaku UMKM.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🤝</div>
-                <h3>Kemitraan</h3>
-                <p>Menghubungkan UMKM dengan mitra usaha, investor, dan marketplace.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>Pendampingan Usaha</h3>
-                <p>Konsultasi bisnis dan pendampingan untuk mengembangkan usaha ke level berikutnya.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🌾</div>
-                <h3>Produk Unggulan Sambas</h3>
-                <p>Ekspos produk khas Sambas seperti jeruk, kerajinan, tenun, dan kuliner lokal.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="about" id="tentang">
-        <div class="about-content">
-            <div class="about-visual">
-                <h3>🏛️ Tentang Sambas</h3>
-                <p>
-                    Kabupaten Sambas, Kalimantan Barat — kaya akan potensi pertanian, kerajinan, dan kuliner.
-                    UMKM Sambas Berjaya hadir untuk memastikan potensi ini dikenal luas dan memberi manfaat
-                    maksimal bagi masyarakat lokal.
-                </p>
-            </div>
-            <div class="about-text">
-                <h2>Mengapa Sambas Berjaya?</h2>
-                <p>
-                    Kami percaya bahwa UMKM adalah tulang punggung ekonomi daerah. Dengan digitalisasi
-                    yang tepat, pelaku usaha Sambas bisa bersaing di pasar nasional bahkan internasional.
-                </p>
-                <ul class="about-list">
-                    <li>Mendukung ekonomi lokal Kabupaten Sambas</li>
-                    <li>Memperluas jangkauan pasar UMKM</li>
-                    <li>Meningkatkan literasi digital pelaku usaha</li>
-                    <li>Memperkenalkan produk unggulan Sambas</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta" id="kontak">
-        <div class="cta-box">
-            <h2>Siap Bergabung?</h2>
-            <p>Daftarkan UMKM Anda dan jadilah bagian dari gerakan Sambas Berjaya!</p>
-            <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20bergabung%20dengan%20UMKM%20Sambas%20Berjaya" class="btn-whatsapp">
-                💬 Chat via WhatsApp
+    <!-- CTA SECTION -->
+    <section class="cta-section" id="kontak">
+        <div class="cta-container">
+            <h2>Mari Bergabung dalam Sambas Berjaya</h2>
+            <p>
+                Daftarkan produk UMKM Anda atau hubungi pengurus untuk menjalin kerja sama kemitraan, pelatihan, dan pameran bersama.
+            </p>
+            <a href="https://wa.me/6281234567890?text=Assalamu%27alaikum%2C%20saya%20tertarik%20bergabung%20dengan%20gerakan%20UMKM%20Sambas%20Berjaya." class="btn-cta-gold">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                </svg>
+                Hubungi via WhatsApp
             </a>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
-        <p>
-            © 2026 <strong>UMKM Sambas Berjaya</strong> — Dibuat dengan ❤️ untuk kemajuan UMKM Sambas<br>
-            <a href="https://github.com/ERGUS457/website-umkm">GitHub Repository</a>
-        </p>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>UMKM Sambas Berjaya</h3>
+                <p>Gerakan Digitalisasi & Pemberdayaan Ekonomi Rakyat Kabupaten Sambas</p>
+            </div>
+            <div class="footer-links">
+                <a href="#beranda">Beranda</a>
+                <a href="#layanan">Layanan</a>
+                <a href="#tentang">Tentang</a>
+                <a href="https://github.com/ERGUS457/website-umkm" target="_blank">Repositori GitHub</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 <strong>UMKM Sambas Berjaya</strong> • Bumi Sambas Terigas. Hak Cipta Dilindungi.</p>
+        </div>
     </footer>
 
 </body>
