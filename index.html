@@ -786,6 +786,313 @@
                 padding-right: 1.5rem;
             }
         }
+
+        /* ===== KATALOG PRODUK SECTION ===== */
+        .katalog-section {
+            padding: 6rem 3rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .katalog-header {
+            text-align: center;
+            max-width: 780px;
+            margin: 0 auto 3rem auto;
+        }
+        .katalog-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.3rem;
+            color: var(--melayu-green-dark);
+            margin-bottom: 0.85rem;
+            letter-spacing: -0.5px;
+        }
+        .katalog-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+        .katalog-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            align-items: center;
+        }
+        .search-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 520px;
+        }
+        .search-wrap input {
+            width: 100%;
+            padding: 0.9rem 1.2rem 0.9rem 3rem;
+            border-radius: 50px;
+            border: 1.5px solid var(--border-soft);
+            background: #FFFFFF;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        .search-wrap input:focus {
+            border-color: var(--melayu-gold);
+            box-shadow: 0 6px 20px var(--melayu-gold-glow);
+        }
+        .search-wrap svg {
+            position: absolute;
+            left: 1.1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            color: var(--text-muted);
+        }
+        .filter-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: center;
+        }
+        .filter-btn {
+            background: #FFFFFF;
+            border: 1.5px solid var(--border-soft);
+            color: var(--text-dark);
+            padding: 0.6rem 1.35rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-family: inherit;
+        }
+        .filter-btn:hover {
+            border-color: var(--melayu-gold);
+            background: var(--melayu-gold-soft);
+            color: var(--melayu-green-dark);
+        }
+        .filter-btn.active {
+            background: var(--melayu-green-dark);
+            border-color: var(--melayu-gold);
+            color: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(13, 62, 41, 0.25);
+        }
+        .katalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+            gap: 1.8rem;
+        }
+        .product-card {
+            background: #FFFFFF;
+            border: 1.5px solid var(--border-green);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--melayu-gold);
+            box-shadow: 0 14px 30px rgba(13, 62, 41, 0.12);
+        }
+        .product-top {
+            background: linear-gradient(135deg, var(--melayu-green-dark), var(--melayu-green));
+            padding: 1.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            min-height: 125px;
+        }
+        .product-badge {
+            position: absolute;
+            top: 0.85rem;
+            right: 0.85rem;
+            background: var(--melayu-gold-bright);
+            color: var(--melayu-green-dark);
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 0.25rem 0.65rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+        .product-icon-wrap {
+            width: 54px;
+            height: 54px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1.5px solid var(--melayu-gold-soft);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--melayu-gold-bright);
+        }
+        .product-icon-wrap svg {
+            width: 26px;
+            height: 26px;
+        }
+        .product-body {
+            padding: 1.4rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .product-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+        .product-meta svg {
+            width: 14px;
+            height: 14px;
+            color: var(--melayu-gold);
+        }
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--melayu-green-dark);
+            margin-bottom: 0.5rem;
+            line-height: 1.35;
+        }
+        .product-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+            margin-bottom: 1.25rem;
+            flex: 1;
+        }
+        .product-price-row {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            padding-top: 0.85rem;
+            border-top: 1px dashed var(--border-soft);
+            margin-bottom: 1.1rem;
+        }
+        .price-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .price-val {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--melayu-gold);
+        }
+        .price-unit {
+            font-size: 0.76rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .btn-wa-order {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            width: 100%;
+            background: #25D366;
+            color: #FFFFFF;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+            border: none;
+            cursor: pointer;
+        }
+        .btn-wa-order:hover {
+            background: #1EBE5D;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+            color: #FFFFFF;
+        }
+        .btn-wa-order svg {
+            width: 18px;
+            height: 18px;
+        }
+        .empty-katalog {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 4rem 1rem;
+            background: #FFFFFF;
+            border-radius: 16px;
+            border: 1.5px dashed var(--border-soft);
+        }
+        .empty-katalog svg {
+            width: 48px;
+            height: 48px;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        .empty-katalog h3 {
+            color: var(--melayu-green-dark);
+            margin-bottom: 0.5rem;
+        }
+        /* ===== FLOATING WHATSAPP BUTTON ===== */
+        .floating-wa {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: #25D366;
+            color: #FFFFFF;
+            padding: 0.75rem 1.25rem 0.75rem 0.95rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.92rem;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .floating-wa:hover {
+            background: #1EBE5D;
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+            color: #FFFFFF;
+        }
+        .floating-wa-icon {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .floating-wa-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+        @media (max-width: 768px) {
+            .floating-wa span {
+                display: none;
+            }
+            .floating-wa {
+                padding: 0.85rem;
+                border-radius: 50%;
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+            .katalog-section {
+                padding: 4rem 1.5rem;
+            }
+            .katalog-header h2 {
+                font-size: 1.85rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -813,6 +1120,7 @@
             <li><a href="#beranda">Beranda</a></li>
             <li><a href="#layanan">Layanan</a></li>
             <li><a href="#tentang">Warisan & Usaha</a></li>
+            <li><a href="#katalog">Katalog Produk</a></li>
             <li>
                 <a href="#kontak" class="nav-btn">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1083,6 +1391,42 @@
         </div>
     </section>
 
+
+    <!-- KATALOG PRODUK SECTION -->
+    <section class="katalog-section" id="katalog">
+        <div class="katalog-header">
+            <span class="hero-tag">Etalase Komoditas Sambas</span>
+            <h2>Katalog Produk Unggulan Daerah</h2>
+            <p>
+                Dukung perputaran ekonomi lokal dengan memesan langsung aneka olahan pangan, hasil bumi segar, serta kain tenun berkualitas tinggi karya putra-putri Kabupaten Sambas.
+            </p>
+        </div>
+
+        <div class="katalog-controls">
+            <!-- Search Bar -->
+            <div class="search-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="katalog-search" placeholder="Cari nama produk, UMKM, atau kecamatan..." />
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">Semua Produk</button>
+                <button class="filter-btn" data-filter="kuliner">🍲 Kuliner Khas</button>
+                <button class="filter-btn" data-filter="tenun">🧵 Kriya & Tenun</button>
+                <button class="filter-btn" data-filter="pertanian">🌾 Hasil Pertanian</button>
+            </div>
+        </div>
+
+        <!-- Grid Cards -->
+        <div class="katalog-grid" id="katalog-container">
+            <!-- Rendered dynamically by JavaScript -->
+        </div>
+    </section>
+
     <!-- CTA SECTION -->
     <section class="cta-section" id="kontak">
         <div class="cta-container">
@@ -1118,6 +1462,7 @@
                 <a href="#beranda">Beranda</a>
                 <a href="#layanan">Layanan</a>
                 <a href="#tentang">Tentang</a>
+                <a href="#katalog">Katalog Produk</a>
                 <a href="https://github.com/ERGUS457/website-umkm" target="_blank">Repositori GitHub</a>
             </div>
         </div>

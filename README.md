@@ -2,7 +2,7 @@
 
 > **Membangun Ekonomi Lokal, Sambas Berjaya!**
 
-Platform digital untuk memajukan Usaha Mikro, Kecil, dan Menengah di Kabupaten Sambas, Kalimantan Barat.
+Platform digital untuk memajukan dan memasarkan produk Usaha Mikro, Kecil, dan Menengah (UMKM) unggulan di Kabupaten Sambas, Kalimantan Barat.
 
 ---
 
@@ -11,31 +11,40 @@ Platform digital untuk memajukan Usaha Mikro, Kecil, dan Menengah di Kabupaten S
 Website sudah aktif secara publik di GitHub Pages:
 👉 **[https://ergus457.github.io/website-umkm/](https://ergus457.github.io/website-umkm/)**
 
-Atau bisa juga membuka file `index.html` secara lokal di browser.
+Atau bisa juga membuka file `index.html` secara lokal di browser Anda.
 
-## 🚀 Fitur
+---
 
-- 🛒 **Katalog Digital** — Produk UMKM online
-- 📢 **Promosi & Pemasaran** — Media digital & sosial media
-- 🎓 **Pelatihan Digital** — Workshop untuk pelaku UMKM
-- 🤝 **Kemitraan** — Koneksi dengan mitra & marketplace
-- 📊 **Pendampingan Usaha** — Konsultasi bisnis
-- 🌾 **Produk Unggulan** — Jeruk, kerajinan, tenun, kuliner Sambas
+## 🚀 Fitur Utama
+
+- 🛒 **Katalog Digital Interaktif** — Etalase komoditas lokal dengan tab kategori (Kuliner Khas, Kriya & Tenun, Hasil Pertanian) serta kotak pencarian instan.
+- 📱 **Integrasi Langsung WhatsApp Business (`0858-2291-2826`)** — Setiap kartu produk dilengkapi tombol pemesanan langsung yang otomatis memformat rincian nama produk, harga, dan nama UMKM.
+- 💬 **Floating WhatsApp Support** — Tombol bantuan melayang di pojok kanan bawah untuk konsultasi kemitraan kapan saja.
+- 🎨 **Desain Melayu Sambas Elegan** — Palet warna khas Hijau Lumut Keraton, Kuning Emas Songket Sambas, dan motif geometris Pucuk Rebung.
+- 🌾 **Produk Unggulan Daerah** — Tenun Songket Sambas, Jeruk Tebas Manis, Lempok Durian Selakau, Bubur Pedas Sambas, Kerupuk Basah Belida, Madu Hutan Paloh, dan Terasi Jawai.
+
+---
 
 ## 📂 Struktur Project
 
 ```
 website-umkm/
-├── index.html          # Landing page utama
-├── README.md           # Dokumentasi project
-└── (coming soon...)    # Halaman tambahan
+├── index.html          # Landing page utama + etalase katalog responsif
+├── data/
+│   └── products.json   # Basis data produk terstruktur (nama, harga, kategori, UMKM)
+└── README.md           # Dokumentasi project
 ```
+
+---
 
 ## 🛠️ Tech Stack
 
-- HTML5 / CSS3 / JavaScript
-- Responsive Design (Mobile-first)
-- Google Fonts (Inter)
+- **HTML5 / CSS3 / Modern JavaScript (ES6+)**
+- **Mobile-first Responsive Design** (Optimal di Smartphone, Tablet, & Desktop)
+- **Google Fonts** (Cinzel & Plus Jakarta Sans)
+- **WhatsApp Direct Conversion API**
+
+---
 
 ## 👥 Tim Kolaborasi
 
@@ -43,17 +52,21 @@ website-umkm/
 |---|---|
 | [@ERGUS457](https://github.com/ERGUS457) | Project Owner |
 | [@sisko-cloud](https://github.com/sisko-cloud) | Collaborator |
-| 🤖 Hermes & Antigravity | AI Assistant |
+| 🤖 Hermes & Antigravity | AI Assistant & Technical Partner |
 
-## 📋 TODO
+---
+
+## 📋 Progress & Roadmap
 
 - [x] Setup repository GitHub
-- [x] Buat landing page awal
-- [ ] Diskusi arah pengembangan website
-- [ ] Tambah halaman katalog produk
-- [ ] Integrasi WhatsApp Business
-- [ ] Deploy ke hosting (Vercel/Netlify/Cloudflare)
-- [ ] Tambah fitur e-commerce (opsional)
+- [x] Buat landing page awal dengan tema Melayu Sambas
+- [x] Diskusi arah pengembangan website bersama Hermes & Antigravity
+- [x] Tambah etalase katalog produk interaktif (Filter, Search, & Grid Responsif)
+- [x] Integrasi pemesanan instan WhatsApp Business (`0858-2291-2826`)
+- [ ] Deploy ke custom domain / hosting lanjutan (Vercel/Cloudflare)
+- [ ] Tambah fitur e-commerce & kalkulator ongkir (opsional)
+
+---
 
 ## 🤝 Kontribusi
 
