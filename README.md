@@ -8,7 +8,10 @@ Platform digital untuk memajukan Usaha Mikro, Kecil, dan Menengah di Kabupaten S
 
 ## 🌐 Live Preview
 
-Buka file `index.html` di browser untuk melihat landing page.
+Website sudah aktif secara publik di GitHub Pages:
+👉 **[https://ergus457.github.io/website-umkm/](https://ergus457.github.io/website-umkm/)**
+
+Atau bisa juga membuka file `index.html` secara lokal di browser.
 
 ## 🚀 Fitur
 
